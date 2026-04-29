@@ -1,6 +1,7 @@
 export const projects = [
   {
     slug: "arsenal",
+    hidden: true,
     title: "Arsenal",
     status: "2026",
     duration: "2026",

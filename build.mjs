@@ -87,10 +87,13 @@ function renderSection(name, label, data = {}) {
 
 const template = await readFile(join(ROOT, "project-template.html"), "utf8");
 
+const visible = projects.filter((p) => !p.hidden);
 for (let i = 0; i < projects.length; i++) {
   const p = projects[i];
-  const prev = projects[(i - 1 + projects.length) % projects.length];
-  const next = projects[(i + 1) % projects.length];
+  const navList = p.hidden ? projects : visible;
+  const idx = navList.indexOf(p);
+  const prev = navList[(idx - 1 + navList.length) % navList.length];
+  const next = navList[(idx + 1) % navList.length];
 
   const contextBody = p.context
     ? `<p class="section-body">${escHtml(p.context)}</p>`
