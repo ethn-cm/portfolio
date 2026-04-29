@@ -1,12 +1,10 @@
 import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm";
 
 const REVEAL_SELECTOR = [
-  ".project-hero img",
   ".block-image img",
   ".block-placeholder",
   ".block-placeholders",
-  ".block-two-up img",
-  ".block-video video"
+  ".block-two-up img"
 ].join(", ");
 
 inView(REVEAL_SELECTOR, ({ target }) => {

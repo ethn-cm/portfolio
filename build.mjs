@@ -15,8 +15,8 @@ const paragraphs = (body) =>
     .join("");
 
 const renderers = {
-  image: ({ src, alt = "", caption, fullBleed }) => `
-    <figure class="block block-image${fullBleed ? " full-bleed" : ""}">
+  image: ({ src, alt = "", caption, fullBleed, framed, naturalSize }) => `
+    <figure class="block block-image${fullBleed ? " full-bleed" : ""}${framed ? " framed" : ""}${naturalSize ? " natural" : ""}">
       <img src="../../${src}" alt="${escAttr(alt)}" />
       ${caption ? `<figcaption>${escHtml(caption)}</figcaption>` : ""}
     </figure>`,
@@ -30,8 +30,8 @@ const renderers = {
       <img src="../../${right.src}" alt="${escAttr(right.alt || "")}" />
     </div>`,
 
-  video: ({ src, poster, autoplay = true, loop = true, muted = true, controls = false }) => `
-    <div class="block block-video">
+  video: ({ src, poster, autoplay = true, loop = true, muted = true, controls = false, framed = false }) => `
+    <div class="block block-video${framed ? " framed" : ""}">
       <video src="../../${src}"${poster ? ` poster="../../${poster}"` : ""}${autoplay ? " autoplay" : ""}${loop ? " loop" : ""}${muted ? " muted playsinline" : ""}${controls ? " controls" : ""}></video>
     </div>`,
 
@@ -45,7 +45,19 @@ const renderers = {
       ).join("")}
     </div>`,
 
-  html: ({ html }) => html
+  html: ({ html }) => html,
+
+  split: ({ left, right }) => `
+    <div class="block block-split">
+      <figure class="block-split-left">
+        <img src="../../${escAttr(left.src)}" alt="${escAttr(left.alt || "")}" />
+      </figure>
+      <div class="block-split-right">
+        ${right.media ? `<img src="../../${escAttr(right.media.src)}" alt="${escAttr(right.media.alt || "")}" />` : ""}
+        ${right.title ? `<h3 class="block-split-title">${escHtml(right.title)}</h3>` : ""}
+        ${right.body ? `<div class="block-split-body">${paragraphs(right.body)}</div>` : ""}
+      </div>
+    </div>`
 };
 
 function renderBlocks(blocks = []) {
@@ -91,8 +103,14 @@ for (let i = 0; i < projects.length; i++) {
     .replaceAll("{{DISCIPLINES}}", escHtml(p.disciplines ?? ""))
     .replaceAll("{{ROLE}}", escHtml(p.role ?? ""))
     .replaceAll("{{CONTEXT_BODY}}", contextBody)
-    .replaceAll("{{HERO_SRC}}", escAttr(p.hero?.src ?? ""))
-    .replaceAll("{{HERO_ALT}}", escAttr(p.hero?.alt ?? ""))
+    .replaceAll(
+      "{{HERO}}",
+      p.hero?.src
+        ? /\.(mp4|webm|mov)$/i.test(p.hero.src)
+          ? `<video src="../../${escAttr(p.hero.src)}" autoplay muted playsinline></video>`
+          : `<img src="../../${escAttr(p.hero.src)}" alt="${escAttr(p.hero.alt ?? "")}" />`
+        : `<div class="hero-placeholder"></div>`
+    )
     .replaceAll("{{PROBLEM_SECTION}}", renderSection("problem", "Problem", p.problem))
     .replaceAll("{{STRATEGY_SECTION}}", renderSection("strategy", "Strategy", p.strategy))
     .replaceAll("{{SOLUTION_SECTION}}", renderSection("solution", "Solution", p.solution))
