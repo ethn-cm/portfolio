@@ -87,6 +87,9 @@ for (let i = 0; i < projects.length; i++) {
   const html = template
     .replaceAll("{{TITLE}}", escHtml(p.title))
     .replaceAll("{{STATUS}}", escHtml(p.status ?? ""))
+    .replaceAll("{{DURATION}}", escHtml(p.duration ?? p.status ?? ""))
+    .replaceAll("{{DISCIPLINES}}", escHtml(p.disciplines ?? ""))
+    .replaceAll("{{ROLE}}", escHtml(p.role ?? ""))
     .replaceAll("{{CONTEXT_BODY}}", contextBody)
     .replaceAll("{{HERO_SRC}}", escAttr(p.hero?.src ?? ""))
     .replaceAll("{{HERO_ALT}}", escAttr(p.hero?.alt ?? ""))

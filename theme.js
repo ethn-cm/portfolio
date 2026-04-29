@@ -24,6 +24,11 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     syncThemeColor();
+
+    const year = new Date().getFullYear();
+    document.querySelectorAll("[data-year]").forEach((el) => {
+      el.textContent = year;
+    });
     const btn = document.querySelector(".theme-toggle");
     if (btn) {
       btn.addEventListener("click", () => {
