@@ -289,39 +289,43 @@ main {
   background: rgba(0, 0, 0, 0.55);
 }
 
-.tile-fill span {
+.tile-label {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   color: #fff;
   opacity: 0;
   transition: opacity 0.15s ease;
   z-index: 1;
 }
 
-.tile:hover .tile-fill span {
+.tile:hover .tile-label {
   opacity: 1;
+}
+
+@media (max-width: 599px) {
+  .tile-label {
+    flex-direction: column;
+    gap: 2px;
+  }
 }
 
 .tile-disabled {
   cursor: not-allowed;
 }
 
-.tile-disabled .tile-fill span {
-  content: "";
-}
-
 .tile-disabled:hover .tile-fill::after {
   background: rgba(0, 0, 0, 0.55);
 }
 
-.tile-disabled:hover .tile-fill span {
+.tile-disabled:hover .tile-label {
   opacity: 1;
 }
 
-.tile-disabled .tile-fill span::after {
+.tile-disabled .tile-date::after {
   content: "\00a0(coming soon)";
 }
 
@@ -382,7 +386,7 @@ main.info .info-body {
     "meta  . body .";
   grid-template-rows: auto auto;
   gap: clamp(24px, 4vw, 64px);
-  row-gap: 8px;
+  row-gap: calc(14px * 1.7);
   margin-top: 32px;
   margin-bottom: 96px;
 }
@@ -399,6 +403,7 @@ main.info .info-body {
   font-weight: 400;
   font-size: 24px;
   letter-spacing: -0.02em;
+  line-height: calc(14px * 1.7);
 }
 
 .project-intro-body {

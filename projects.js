@@ -23,8 +23,8 @@ export const projects = [
     context: "Modulation Station is an EDM artist and content creator. He creates music with a cinematic feel that inspires emotional connection.",
     hero: { src: "images/mod/rebelle.png", alt: "Modulation Station — Rebelle" },
     problem:  { body: "Placeholder problem — describe the constraints, questions, or tensions that shaped the work. Replace with real copy.", blocks: [{ type: "image", src: "images/mod/Frame 6.png", alt: "" }] },
-    strategy: { body: "Placeholder strategy — outline the approach, references, and decisions that moved the project forward. Replace with real copy.", blocks: [{ type: "image", src: "images/mod/Sound waves.png", alt: "" }, { type: "placeholder", aspect: "1/1" }] },
-    solution: { body: "", blocks: [{ type: "placeholder", aspect: "16/9" }] }
+    strategy: { body: "From the start, we wanted the brand to feel different from the traditional cyberpunk aesthetic that commonly associated with EDM. The goal was to create a system that was sleeker and more gentle, while drawing inspiration from the process of making music.", blocks: [{ type: "image", src: "images/mod/Sound waves.png", alt: "" }, { type: "placeholder", aspect: "1/1" }] },
+    solution: { body: "The core idea behind the identity is an audio responsive, abstract M. There are also alternate letterforms based on the 4 primary sound waves used during the music synthesis process.", blocks: [{ type: "placeholder", aspect: "16/9" }] }
   },
   {
     slug: "utopos",
