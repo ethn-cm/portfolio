@@ -15,3 +15,15 @@ inView(REVEAL_SELECTOR, ({ target }) => {
     { duration: 0.5, easing: [0.16, 1, 0.3, 1] }
   );
 });
+
+inView("video", ({ target }) => {
+  const tryPlay = () => target.play().catch(() => {});
+  tryPlay();
+  target.addEventListener("loadeddata", tryPlay, { once: true });
+});
+
+const playAllVisibleVideos = () => {
+  document.querySelectorAll("video").forEach((v) => v.play().catch(() => {}));
+};
+window.addEventListener("touchstart", playAllVisibleVideos, { once: true, passive: true });
+window.addEventListener("click", playAllVisibleVideos, { once: true });

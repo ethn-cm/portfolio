@@ -219,6 +219,9 @@ html.nav-hidden .site-header:not(.is-open) {
   .site-header nav ul {
     gap: 24px;
   }
+  .site-header .theme-toggle {
+    margin-left: 24px;
+  }
 }
 
 .theme-toggle:hover {
