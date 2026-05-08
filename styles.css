@@ -170,7 +170,7 @@ html.nav-hidden .site-header:not(.is-open) {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  border: 0.75px solid var(--fg);
+  border: 1px solid var(--fg);
   background: var(--bg);
   padding: 0;
   cursor: pointer;
