@@ -1,14 +1,6 @@
 @font-face {
-  font-family: "KH Teka";
-  src: url("fonts/KHTeka-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "KH Teka";
-  src: url("fonts/KHTeka-Regular.woff") format("woff");
+  font-family: "Pitch Sans";
+  src: url("fonts/WOFF2/pitch-sans-regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -96,8 +88,8 @@ body::-webkit-scrollbar {
 }
 
 body {
-  font-family: "KH Teka", system-ui, sans-serif;
-  font-size: 14px;
+  font-family: "Pitch Sans", system-ui, sans-serif;
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.4;
   color: var(--fg);
@@ -178,7 +170,7 @@ html.nav-hidden .site-header:not(.is-open) {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  border: 1px solid var(--fg);
+  border: 0.75px solid var(--fg);
   background: var(--bg);
   padding: 0;
   cursor: pointer;
@@ -386,7 +378,7 @@ main.info .info-body {
     "meta  . body .";
   grid-template-rows: auto auto;
   gap: clamp(24px, 4vw, 64px);
-  row-gap: calc(14px * 1.7);
+  row-gap: calc(12px * 1.7);
   margin-top: 32px;
   margin-bottom: 96px;
 }
@@ -403,7 +395,7 @@ main.info .info-body {
   font-weight: 400;
   font-size: 24px;
   letter-spacing: -0.02em;
-  line-height: calc(14px * 1.7);
+  line-height: calc(12px * 1.7);
 }
 
 .project-intro-body {
@@ -465,7 +457,12 @@ main.info .info-body {
 .section-head h2 {
   font-weight: 400;
   font-style: normal;
-  font-size: 14px;
+  font-size: 12px;
+}
+
+.section-strategy .section-head h2,
+.section-solution .section-head h2 {
+  font-style: italic;
 }
 
 .section-meta {
@@ -638,7 +635,7 @@ main.project {
 
 .block-split-title {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .block-split-body {
