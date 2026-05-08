@@ -170,7 +170,7 @@ html.nav-hidden .site-header:not(.is-open) {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  border: 1px solid var(--fg);
+  border: 1.5px solid var(--fg);
   background: var(--bg);
   padding: 0;
   cursor: pointer;
@@ -460,10 +460,6 @@ main.info .info-body {
   font-size: 12px;
 }
 
-.section-strategy .section-head h2,
-.section-solution .section-head h2 {
-  font-style: italic;
-}
 
 .section-meta {
   color: #999;
