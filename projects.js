@@ -16,8 +16,8 @@ export const projects = [
   {
     slug: "modulation-station",
     title: "Modulation Station",
-    status: "2024",
-    duration: "2024",
+    status: "2023",
+    duration: "2023",
     disciplines: "Identity",
     role: "Designer",
     context: "Modulation Station is an EDM artist and content creator. He creates music with a cinematic feel that inspires emotional connection.",
@@ -29,8 +29,8 @@ export const projects = [
   {
     slug: "utopos",
     title: "Utopos",
-    status: "2024",
-    duration: "2024",
+    status: "2023",
+    duration: "2023",
     disciplines: "Book Design, Identity",
     role: "Designer",
     context:

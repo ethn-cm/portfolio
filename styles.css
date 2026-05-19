@@ -6,6 +6,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Pitch Sans";
+  src: url("fonts/pitch-sans-regular-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 @keyframes fadeInDown {
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
@@ -207,6 +215,25 @@ html.nav-hidden .site-header:not(.is-open) {
   .site-header .theme-toggle {
     margin-left: 24px;
   }
+  .nav-toggle {
+    display: flex;
+  }
+  .site-header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    padding: 16px clamp(16px, 3vw, 32px) 24px;
+  }
+  .site-header nav ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .site-header.is-open nav {
+    display: block;
+  }
 }
 
 .theme-toggle:hover {
@@ -222,7 +249,7 @@ html.nav-hidden .site-header:not(.is-open) {
 }
 
 main {
-  margin-top: clamp(48px, 8vh, 96px);
+  margin-top: clamp(96px, 14vh, 192px);
   flex: 1;
 }
 
@@ -369,11 +396,34 @@ main.info .info-body {
   grid-template-areas:
     "title . body ."
     "meta  . body .";
-  grid-template-rows: auto auto;
-  gap: clamp(24px, 4vw, 64px);
-  row-gap: calc(12px * 1.7);
-  margin-top: 32px;
-  margin-bottom: 96px;
+  grid-template-rows: auto 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  row-gap: 0;
+  margin-top: 0;
+  margin-bottom: clamp(128px, 14vw, 192px);
+}
+
+.split-aligned {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "left left body .";
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+.split-aligned-left {
+  grid-area: left;
+  margin: 0;
+}
+
+.split-aligned-left img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.split-aligned-body {
+  grid-area: body;
 }
 
 .project-title {
@@ -386,8 +436,7 @@ main.info .info-body {
 
 .project-title {
   font-weight: 400;
-  font-size: 24px;
-  letter-spacing: -0.02em;
+  font-size: 12px;
   line-height: calc(12px * 1.7);
 }
 
@@ -399,10 +448,14 @@ main.info .info-body {
   margin-bottom: 0;
 }
 
+.project-intro-body .section-body + .section-body {
+  margin-top: 1em;
+}
+
 .project-meta {
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  flex-direction: row;
+  gap: 16px;
   margin: 0;
   line-height: 1.7;
   grid-area: meta;
@@ -416,6 +469,7 @@ main.info .info-body {
 }
 
 .project-meta dd {
+  color: #999;
   margin: 0;
   line-height: 1.7;
 }
@@ -433,23 +487,23 @@ main.info .info-body {
 }
 
 .project-section {
-  margin-bottom: clamp(48px, 6vw, 72px);
+  margin-bottom: clamp(24px, 4vw, 48px);
 }
 
 .project-section + .project-section:not(:has(.section-head)) {
-  margin-top: calc(clamp(16px, 3vw, 32px) - clamp(48px, 6vw, 72px));
+  margin-top: 0;
 }
 
 .section-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .section-head h2 {
   font-weight: 400;
-  font-style: normal;
+  font-style: italic;
   font-size: 12px;
 }
 
@@ -460,18 +514,18 @@ main.info .info-body {
 
 .section-body {
   max-width: 60ch;
-  margin-bottom: clamp(48px, 6vw, 72px);
+  margin-bottom: clamp(48px, 6vw, 80px);
   line-height: 1.7;
 }
 
 .section-blocks {
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 3vw, 32px);
+  gap: clamp(24px, 4vw, 48px);
 }
 
 .project-hero {
-  margin-bottom: 32px;
+  margin-bottom: clamp(24px, 3vw, 40px);
 }
 
 main.project {
@@ -520,7 +574,11 @@ main.project {
 .block-two-up {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(16px, 3vw, 32px);
+  gap: clamp(24px, 4vw, 48px);
+}
+
+.block-two-up.compact {
+  max-width: 480px;
 }
 
 .block-two-up img {
@@ -596,7 +654,7 @@ main.project {
 .block-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(16px, 3vw, 32px);
+  gap: clamp(24px, 4vw, 48px);
   align-items: start;
 }
 
@@ -627,6 +685,10 @@ main.project {
   font-size: 12px;
 }
 
+.block-split-text .section-body {
+  margin-bottom: 0;
+}
+
 .block-split-body {
   line-height: 1.7;
   max-width: 60ch;
@@ -653,8 +715,12 @@ main.project {
 .project-nav {
   display: flex;
   justify-content: space-between;
-  margin-top: clamp(48px, 8vh, 96px);
-  margin-bottom: clamp(48px, 8vh, 96px);
+  margin-top: clamp(96px, 14vh, 160px);
+  margin-bottom: clamp(96px, 14vh, 160px);
+}
+
+.project-nav .next {
+  margin-left: auto;
 }
 
 .project-nav a {
@@ -695,7 +761,7 @@ main.project {
 }
 
 .site-footer {
-  margin-top: clamp(48px, 8vh, 96px);
+  margin-top: clamp(96px, 14vh, 160px);
   padding-top: 16px;
   border-top: 0.5px solid #999;
   display: flex;
