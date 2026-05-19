@@ -8,7 +8,7 @@ export const projects = [
     disciplines: "Identity",
     role: "Designer",
     context: "Arsenal is the first venture capital fund that invests in weapons manufacturing for the United States military. 99% of venture firms won't invest due to ESG concerns and government regulations.",
-    hero: { src: "images/arsenal/Group 5.png", alt: "Arsenal" },
+    hero: { src: "images/arsenal/Group 5.webp", alt: "Arsenal" },
     problem:  { body: "Placeholder problem — describe the constraints, questions, or tensions that shaped the work. Replace with real copy.", blocks: [{ type: "placeholder", aspect: "16/9" }] },
     strategy: { body: "Placeholder strategy — outline the approach, references, and decisions that moved the project forward. Replace with real copy.", blocks: [{ type: "placeholders", count: 2, aspect: "1/1" }] },
     solution: { body: "", blocks: [{ type: "placeholder", aspect: "16/9" }] }
@@ -21,7 +21,7 @@ export const projects = [
     disciplines: "Identity",
     role: "Designer",
     context: "Modulation Station is an EDM artist and content creator. He creates music with a cinematic feel that inspires emotional connection.",
-    hero: { src: "images/mod/rebelle.png", alt: "Modulation Station — Rebelle" },
+    hero: { src: "images/mod/rebelle.webp", alt: "Modulation Station — Rebelle" },
     problem:  { body: "Placeholder problem — describe the constraints, questions, or tensions that shaped the work. Replace with real copy.", blocks: [{ type: "image", src: "images/mod/Frame 6.png", alt: "" }] },
     strategy: { body: "From the start, we wanted the brand to feel different from the traditional cyberpunk aesthetic that commonly associated with EDM. The goal was to create a system that was sleeker and more gentle, while drawing inspiration from the process of making music.", blocks: [{ type: "image", src: "images/mod/Sound waves.png", alt: "" }, { type: "placeholder", aspect: "1/1" }] },
     solution: { body: "The core idea behind the identity is an audio responsive, abstract M. There are also alternate letterforms based on the 4 primary sound waves used during the music synthesis process.", blocks: [{ type: "placeholder", aspect: "16/9" }] }
@@ -35,7 +35,7 @@ export const projects = [
     role: "Designer",
     context:
       "Utopos is a digital archive of the past. The long-term goal is to build a visual identity that encapsulates the Art Deco, Streamline Moderne and Nuclear Age design movements.",
-    hero: { src: "images/utopos/Utopos_Book.png", alt: "Utopos book" },
+    hero: { src: "images/utopos/Utopos_Book.webp", alt: "Utopos book" },
     problem: {
       body: "Placeholder problem — describe the constraints, questions, or tensions that shaped the work. Replace with real copy.",
       blocks: [

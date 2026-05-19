@@ -6,8 +6,7 @@
     sessionStorage.setItem("introSeen", "1");
   }
 
-  const stored = localStorage.getItem("theme");
-  if (stored === "dark") document.documentElement.setAttribute("data-theme", "dark");
+  document.documentElement.setAttribute("data-theme", "dark");
 
   const syncThemeColor = () => {
     const isDark = document.documentElement.getAttribute("data-theme") === "dark";
